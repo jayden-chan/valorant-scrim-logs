@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import MatchItem, { IGameItemProps } from "./components/MatchListItem";
+import MatchItem from "./components/MatchListItem";
 import { games } from "./matches.json";
 import { groupBy } from "./util";
 

@@ -75,13 +75,6 @@ function GameItem(props: IGameItemProps) {
     return ret;
   });
 
-  const result =
-    props.score[0] > props.score[1]
-      ? "VICTORY"
-      : props.score[1] > props.score[0]
-      ? "DEFEAT"
-      : "DRAW";
-
   const color =
     props.score[0] > props.score[1]
       ? "#9bff87"
@@ -95,6 +88,7 @@ function GameItem(props: IGameItemProps) {
         {isExpanded ? (
           <img
             style={{ marginTop: 10, marginRight: 10, cursor: "pointer" }}
+            alt=""
             onClick={() => setIsExpanded((prev) => !prev)}
             src={dropup}
             width="24"
@@ -103,6 +97,7 @@ function GameItem(props: IGameItemProps) {
         ) : (
           <img
             style={{ marginTop: 10, marginRight: 10, cursor: "pointer" }}
+            alt=""
             onClick={() => setIsExpanded((prev) => !prev)}
             src={dropdown}
             width="24"
@@ -143,7 +138,7 @@ function GameItem(props: IGameItemProps) {
                 return (
                   <tr key={idx}>
                     <td>
-                      <img src={images[image]} />
+                      <img src={images[image]} alt={image} />
                     </td>
                     {row.slice(1).map((val, idx2) => (
                       <td
