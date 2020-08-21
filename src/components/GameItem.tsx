@@ -97,7 +97,6 @@ export default function GameItem(props: IGameItemProps) {
     if (sortColumn === header) {
       setSortDirection(!sortDirection);
     } else {
-      setSortDirection(true);
       setSortColumn(header);
     }
   }
@@ -166,15 +165,7 @@ export default function GameItem(props: IGameItemProps) {
                   {COL_HEADERS.map((header) => {
                     return (
                       <th key={header} onClick={() => toggleSort(header)} className="sbd-head">
-                        {header}
-                        {header === sortColumn ? (
-                          <img className="sort-dropdown"
-                            alt=""
-                            src={sortDirection ? dropup : dropdown}
-                            width="12"
-                            height="7"
-                          />
-                        ): null}
+                        {header === sortColumn ? header + (sortDirection ? " \u2191" : " \u2193") : header}
                       </th>
                     );
                   })}
