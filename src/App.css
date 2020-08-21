@@ -1,38 +1,89 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #1f2329;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0px 50px 0px 200px;
+  margin: 0px;
+  color: #fff9e6;
 }
 
-.App-link {
-  color: #61dafb;
+.Match-card {
+  padding: 0;
+  margin: 0 0 40px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Match-card span {
+  margin-right: 0.5em;
+}
+
+.Game-card {
+  padding: 20px;
+  margin: 10px 8px 10px 0px;
+  min-width: 50vw;
+  border-radius: 8px;
+  font-weight: normal;
+  background-color: #313640;
+}
+
+.Game-card h5 {
+  margin: 0;
+}
+
+.Game-card span {
+  margin-right: 20px;
+}
+
+.Game-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.Match-card h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.sbd {
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+.game-card {
+  background-color: #5a5b6b;
+  color: #fff;
+}
+
+.sbd-team {
+  background-color: #5f998d;
+}
+
+.sbd-enemy {
+  background-color: #9c5c60;
+}
+
+.sbd-name {
+  text-align: left;
+}
+
+.sbd-num {
+  text-align: center;
+}
+
+.sbd-cell {
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin: 10px;
+}
+
+.sbd-head {
+  padding: 15px;
+  border-width: 2px;
+  border-style: none none solid none;
+  border-color: #ebdbb2;
 }
