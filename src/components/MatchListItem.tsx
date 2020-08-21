@@ -66,6 +66,9 @@ export interface IGameItemProps {
 
 function GameItem(props: IGameItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [sortColumn, setSortColumn] = useState(COL_HEADERS[0]);
+  const [sortDirection, setSortDirection] = useState(true);
+
   const mappedScoreboard = props.scoreboard.map((row) => {
     const ret = [...row];
     const k = Number(row[3]);
@@ -75,6 +78,30 @@ function GameItem(props: IGameItemProps) {
     return ret;
   });
 
+  let sortedScoreboard = mappedScoreboard.sort((a, b) => {
+    const colIdx = COL_HEADERS.indexOf(sortColumn) + 2;
+    const aVal = Number(a[colIdx]);
+    const bVal = Number(b[colIdx]);
+    if (aVal > bVal) {
+      return -1;
+    }
+    if (aVal < bVal) {
+      return 1;
+    }
+    return 0
+  });
+
+  sortedScoreboard = sortDirection ? sortedScoreboard : sortedScoreboard.reverse();
+
+  const toggleSort = (header: string) => {
+    if (sortColumn === header) {
+      setSortDirection(!sortDirection);
+    } else {
+      setSortDirection(true);
+      setSortColumn(header);
+    }
+  }
+  
   const color =
     props.score[0] > props.score[1]
       ? "#9bff87"
@@ -138,15 +165,23 @@ function GameItem(props: IGameItemProps) {
                   </th>
                   {COL_HEADERS.map((header) => {
                     return (
-                      <th key={header} className="sbd-head">
+                      <th key={header} onClick={() => toggleSort(header)} className="sbd-head">
                         {header}
+                        {header === sortColumn ? (
+                          <img className="sort-dropdown"
+                            alt=""
+                            src={sortDirection ? dropup : dropdown}
+                            width="12"
+                            height="7"
+                          />
+                        ): null}
                       </th>
                     );
                   })}
                 </tr>
               </thead>
               <tbody>
-                {mappedScoreboard.map((row) => {
+                {sortedScoreboard.map((row) => {
                   const image = row[0] as keyof typeof images;
                   return (
                     <tr>
