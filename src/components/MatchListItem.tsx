@@ -118,7 +118,7 @@ function GameItem(props: IGameItemProps) {
         <div>
           {props.url ? (
             <p className="vod">
-              <a target="_blank" href={props.url}>
+              <a target="_blank" rel="noopener noreferrer" href={props.url}>
                 {props.url}
               </a>
             </p>
@@ -146,7 +146,7 @@ function GameItem(props: IGameItemProps) {
                 </tr>
               </thead>
               <tbody>
-                {mappedScoreboard.map((row, idx) => {
+                {mappedScoreboard.map((row) => {
                   const image = row[0] as keyof typeof images;
                   return (
                     <tr>
