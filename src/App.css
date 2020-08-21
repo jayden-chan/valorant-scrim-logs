@@ -4,56 +4,75 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: calc(10px + 2vmin);
-  padding: 0px 50px 0px 200px;
+  font-size: calc(10px + 1.5vmin);
+  padding: 0px 5vw 0px 5vw;
   margin: 0px;
   color: #fff9e6;
 }
 
-.Match-card {
+.match-card {
   padding: 0;
   margin: 0 0 40px 0;
+  min-width: 50vw;
 }
 
-.Match-card span {
+@media (max-width: 1000px) {
+  .match-card {
+    width: 100%;
+  }
+}
+
+.match-card span {
   margin-right: 0.5em;
 }
 
-.Game-card {
+.match-card h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.game-card {
   padding: 20px;
-  margin: 10px 8px 10px 0px;
-  min-width: 50vw;
-  border-radius: 8px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
   font-weight: normal;
   background-color: #313640;
 }
 
-.Game-card h5 {
+.game-card h5 {
   margin: 0;
 }
 
-.Game-card span {
+.game-card span {
   margin-right: 20px;
 }
 
-.Game-header {
+.game-header {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.Match-card h4 {
-  padding: 0;
-  margin: 0;
+.game-dropdown {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.sbd-container {
+  background-color: #5a5b6b;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .sbd {
   border-collapse: collapse;
-  font-size: 18px;
-}
-
-.game-card {
-  background-color: #5a5b6b;
-  color: #fff;
+  border-spacing: 0px;
+  padding: 0;
+  font-size: calc(13px + 0.5vmin);
 }
 
 .sbd-team {
@@ -74,11 +93,16 @@
 
 .sbd-cell {
   vertical-align: middle;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin: 10px;
+  padding: 0 10px 0 10px;
+  margin: 0px;
+}
+
+.sbd-img {
+  vertical-align: top;
+  display: inline-block;
+  max-height: 50px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .sbd-head {
@@ -86,4 +110,16 @@
   border-width: 2px;
   border-style: none none solid none;
   border-color: #ebdbb2;
+}
+
+.vod {
+  font-size: calc(10px + 1vmin);
+  color: #fff9e6;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.vod a {
+  color: #fff9e6;
+  text-decoration-line: none;
 }

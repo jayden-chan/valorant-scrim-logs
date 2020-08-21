@@ -83,11 +83,11 @@ function GameItem(props: IGameItemProps) {
       : "yellow";
 
   return (
-    <div className="Game-card">
-      <div className="Game-header">
+    <div className="game-card">
+      <div className="game-header">
         {isExpanded ? (
           <img
-            style={{ marginTop: 10, marginRight: 10, cursor: "pointer" }}
+            className="game-dropdown"
             alt=""
             onClick={() => setIsExpanded((prev) => !prev)}
             src={dropup}
@@ -96,7 +96,7 @@ function GameItem(props: IGameItemProps) {
           />
         ) : (
           <img
-            style={{ marginTop: 10, marginRight: 10, cursor: "pointer" }}
+            className="game-dropdown"
             alt=""
             onClick={() => setIsExpanded((prev) => !prev)}
             src={dropdown}
@@ -116,47 +116,63 @@ function GameItem(props: IGameItemProps) {
       </div>
       {isExpanded && (
         <div>
-          <table id={`${props.date}${props.map}${props.time}`} className="sbd">
-            <thead>
-              <tr>
-                <th key="Icon" className="sbd-hhead"></th>
-                <th key="Player Name" className="sbd-head">
-                  Player Name
-                </th>
-                {COL_HEADERS.map((header) => {
+          {props.url ? (
+            <p className="vod">
+              <a target="_blank" href={props.url}>
+                {props.url}
+              </a>
+            </p>
+          ) : (
+            <p className="vod">No VOD available</p>
+          )}
+          <div className="sbd-container">
+            <table
+              id={`${props.date}${props.map}${props.time}`}
+              className="sbd"
+            >
+              <thead>
+                <tr>
+                  <th key="Icon" className="sbd-head"></th>
+                  <th key="Player Name" className="sbd-head">
+                    Player Name
+                  </th>
+                  {COL_HEADERS.map((header) => {
+                    return (
+                      <th key={header} className="sbd-head">
+                        {header}
+                      </th>
+                    );
+                  })}
+                </tr>
+              </thead>
+              <tbody>
+                {mappedScoreboard.map((row, idx) => {
+                  const image = row[0] as keyof typeof images;
                   return (
-                    <th key={header} className="sbd-head">
-                      {header}
-                    </th>
+                    <tr>
+                      <td className="sbd-img">
+                        <img src={images[image]} alt={image} />
+                      </td>
+                      {row.slice(1).map((val, idx2) => (
+                        <td
+                          className={`sbd-cell ${
+                            idx2 === 0 ? "sbd-name" : "sbd-num"
+                          } ${
+                            TEAMMATES.includes(row[1])
+                              ? "sbd-team"
+                              : "sbd-enemy"
+                          }`}
+                          key={idx2}
+                        >
+                          {idx2 === 0 ? <b>{val}</b> : val}
+                        </td>
+                      ))}
+                    </tr>
                   );
                 })}
-              </tr>
-            </thead>
-            <tbody>
-              {mappedScoreboard.map((row, idx) => {
-                const image = row[0] as keyof typeof images;
-                return (
-                  <tr key={idx}>
-                    <td>
-                      <img src={images[image]} alt={image} />
-                    </td>
-                    {row.slice(1).map((val, idx2) => (
-                      <td
-                        className={`sbd-cell ${
-                          idx2 === 0 ? "sbd-name" : "sbd-num"
-                        } ${
-                          TEAMMATES.includes(row[1]) ? "sbd-team" : "sbd-enemy"
-                        }`}
-                        key={idx2}
-                      >
-                        {idx2 === 0 ? <b>{val}</b> : val}
-                      </td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
@@ -194,7 +210,7 @@ export default function MatchItem(props: IMatchItemProps) {
     score[0] > score[1] ? "VICTORY" : score[1] > score[0] ? "DEFEAT" : "DRAW";
 
   return (
-    <div className="Match-card">
+    <div className="match-card">
       <h4>
         <span>{props.games[0].date}</span>
         <span>-</span>
