@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e49268c51421a50edaee562d756448c9",
+    "revision": "81e8d5b2dde74f543eef80aa263a90fc",
     "url": "/valorant-scrim-logs/index.html"
   },
   {
