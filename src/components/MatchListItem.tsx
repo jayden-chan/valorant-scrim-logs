@@ -1,5 +1,6 @@
 import React from "react";
-import GameItem, {IGameItemProps} from './GameItem';
+import GameItem, { IGameItemProps } from "./GameItem";
+import { COLORS } from "../constants";
 
 export interface IMatchItemProps {
   games: IGameItemProps[];
@@ -24,10 +25,11 @@ export default function MatchItem(props: IMatchItemProps) {
 
   const color =
     score[0] > score[1]
-      ? "#9bff87"
+      ? COLORS.GREEN
       : score[1] > score[0]
-      ? "#ff5454"
-      : "yellow";
+      ? COLORS.RED
+      : COLORS.YELLOW;
+
   const result =
     score[0] > score[1] ? "VICTORY" : score[1] > score[0] ? "DEFEAT" : "DRAW";
 

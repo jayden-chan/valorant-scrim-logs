@@ -17,6 +17,8 @@ import viper from "../agents/viper.png";
 import dropdown from "../images/dropdown.png";
 import dropup from "../images/dropup.png";
 
+import { COL_HEADERS, TEAMMATES, COLORS } from "../constants";
+
 const images = {
   breach,
   brimstone,
@@ -31,29 +33,6 @@ const images = {
   sova,
   viper,
 };
-
-const TEAMMATES = [
-  "ATQMIC",
-  "LithiumFrost",
-  "Eung Coconut",
-  "Wild West",
-  "HonestPretzels",
-  "Pax1",
-  "Jakyb",
-  "Mugi",
-];
-
-const COL_HEADERS = [
-  "Avg Combat Score",
-  "K",
-  "D",
-  "A",
-  "K/D Ratio",
-  "Econ Rating",
-  "First Bloods",
-  "Plants",
-  "Defuses",
-];
 
 export interface IGameItemProps {
   date: string;
@@ -106,33 +85,22 @@ export default function GameItem(props: IGameItemProps) {
 
   const color =
     props.score[0] > props.score[1]
-      ? "#9bff87"
+      ? COLORS.GREEN
       : props.score[1] > props.score[0]
-      ? "#ff5454"
-      : "yellow";
+      ? COLORS.RED
+      : COLORS.YELLOW;
 
   return (
     <div className="game-card">
       <div className="game-header">
-        {isExpanded ? (
-          <img
-            className="game-dropdown"
-            alt=""
-            onClick={() => setIsExpanded((prev) => !prev)}
-            src={dropup}
-            width="24"
-            height="13"
-          />
-        ) : (
-          <img
-            className="game-dropdown"
-            alt=""
-            onClick={() => setIsExpanded((prev) => !prev)}
-            src={dropdown}
-            width="24"
-            height="13"
-          />
-        )}
+        <img
+          className="game-dropdown"
+          alt=""
+          onClick={() => setIsExpanded((prev) => !prev)}
+          src={isExpanded ? dropup : dropdown}
+          width="24"
+          height="13"
+        />
         <h5>
           <span style={{ color }}>{props.map}</span>
           <span>|</span>
@@ -217,4 +185,3 @@ export default function GameItem(props: IGameItemProps) {
     </div>
   );
 }
-
