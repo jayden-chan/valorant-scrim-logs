@@ -68,6 +68,7 @@ export default function GameItem(props: IGameItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [sortColumn, setSortColumn] = useState(COL_HEADERS[0]);
   const [sortDirection, setSortDirection] = useState(true);
+  const [sortByTeam, setSortByTeam] = useState(false);
 
   const mappedScoreboard = props.scoreboard.map((row) => {
     const ret = [...row];
@@ -82,6 +83,14 @@ export default function GameItem(props: IGameItemProps) {
     const colIdx = COL_HEADERS.indexOf(sortColumn) + 2;
     const aVal = Number(a[colIdx]);
     const bVal = Number(b[colIdx]);
+    if (sortByTeam) {
+      if (TEAMMATES.includes(a[1]) && !TEAMMATES.includes(b[1])) {
+        return -1;
+      }
+      if (!TEAMMATES.includes(a[1]) && TEAMMATES.includes(b[1])) {
+        return 1;
+      }
+    }
     if (aVal > bVal) {
       return -1;
     }
@@ -139,6 +148,14 @@ export default function GameItem(props: IGameItemProps) {
             {props.score[0]} - {props.score[1]}
           </span>
         </h5>
+        {isExpanded && (
+          <div className="sortByTeamToggle">
+            <label className="sortByTeamLabel">
+              Sort by Team
+              <input type="checkBox" onClick={() => setSortByTeam(!sortByTeam)} />
+            </label>
+          </div>
+        )}
       </div>
       {isExpanded && (
         <div>
