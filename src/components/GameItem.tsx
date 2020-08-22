@@ -72,10 +72,7 @@ export default function GameItem(props: IGameItemProps) {
 
   const mappedScoreboard = props.scoreboard.map((row) => {
     const ret = [...row];
-    const k = Number(row[3]);
-    const d = Number(row[4]);
-    const kd = (k / d).toFixed(2);
-    ret.splice(6, 0, kd);
+    ret.splice(6, 0, (Number(row[3]) / Number(row[4])).toFixed(2));
     return ret;
   });
 
@@ -91,16 +88,13 @@ export default function GameItem(props: IGameItemProps) {
         return 1;
       }
     }
-    if (aVal > bVal) {
-      return -1;
-    }
-    if (aVal < bVal) {
-      return 1;
-    }
-    return 0
+
+    return aVal > bVal ? -1 : aVal < bVal ? 1 : 0;
   });
 
-  sortedScoreboard = sortDirection ? sortedScoreboard : sortedScoreboard.reverse();
+  sortedScoreboard = sortDirection
+    ? sortedScoreboard
+    : sortedScoreboard.reverse();
 
   const toggleSort = (header: string) => {
     if (sortColumn === header) {
@@ -108,8 +102,8 @@ export default function GameItem(props: IGameItemProps) {
     } else {
       setSortColumn(header);
     }
-  }
-  
+  };
+
   const color =
     props.score[0] > props.score[1]
       ? "#9bff87"
@@ -148,14 +142,6 @@ export default function GameItem(props: IGameItemProps) {
             {props.score[0]} - {props.score[1]}
           </span>
         </h5>
-        {isExpanded && (
-          <div className="sortByTeamToggle">
-            <label className="sortByTeamLabel">
-              Sort by Team
-              <input type="checkBox" onClick={() => setSortByTeam(!sortByTeam)} />
-            </label>
-          </div>
-        )}
       </div>
       {isExpanded && (
         <div>
@@ -176,13 +162,23 @@ export default function GameItem(props: IGameItemProps) {
               <thead>
                 <tr>
                   <th key="Icon" className="sbd-head"></th>
-                  <th key="Player Name" className="sbd-head">
-                    Player Name
+                  <th
+                    onClick={() => setSortByTeam((prev) => !prev)}
+                    key="Player Name"
+                    className="sbd-head"
+                  >
+                    {sortByTeam ? "Grouped by Team" : "Individually Sorted"}
                   </th>
                   {COL_HEADERS.map((header) => {
                     return (
-                      <th key={header} onClick={() => toggleSort(header)} className="sbd-head">
-                        {header === sortColumn ? header + (sortDirection ? " \u2191" : " \u2193") : header}
+                      <th
+                        key={header}
+                        onClick={() => toggleSort(header)}
+                        className="sbd-head"
+                      >
+                        {header === sortColumn
+                          ? header + (sortDirection ? " \u2191" : " \u2193")
+                          : header}
                       </th>
                     );
                   })}
@@ -221,3 +217,4 @@ export default function GameItem(props: IGameItemProps) {
     </div>
   );
 }
+
