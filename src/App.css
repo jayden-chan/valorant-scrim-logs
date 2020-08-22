@@ -4,10 +4,37 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(10px + 1.6vmin);
   padding: 0px 5vw 0px 5vw;
   margin: 0px;
   color: #fff9e6;
+}
+
+@media (max-width: 1000px) {
+  .App {
+    font-size: calc(10px + 2vmin);
+  }
+}
+
+.info-header {
+  background-color: #313640;
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+
+.info-header p {
+  margin: 0;
+}
+
+.info-header b {
+  margin-right: 5px;
+}
+
+.info-header span {
+  margin-right: 20px;
 }
 
 .match-card {
@@ -19,6 +46,11 @@
 @media (max-width: 1000px) {
   .match-card {
     width: 100%;
+  }
+
+  .info-header {
+    flex-direction: column;
+    width: calc(100% - 20px);
   }
 }
 
@@ -41,6 +73,7 @@
 
 .game-card h5 {
   margin: 0;
+  font-size: calc(10px + 1.7vmin);
 }
 
 .game-card span {
