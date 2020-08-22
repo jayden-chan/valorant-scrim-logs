@@ -118,14 +118,6 @@
   cursor: pointer;
 }
 
-.sortByTeamToggle {
-  margin-left: auto;
-}
-
-.sortByTeamLabel {
-  font-size: large;
-}
-
 .vod {
   font-size: calc(10px + 1vmin);
   color: #fff9e6;
