@@ -59,6 +59,11 @@
   cursor: pointer;
 }
 
+.sort-dropdown {
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
 .sbd-container {
   background-color: #5a5b6b;
   margin-top: 20px;
@@ -110,6 +115,15 @@
   border-width: 2px;
   border-style: none none solid none;
   border-color: #ebdbb2;
+  cursor: pointer;
+}
+
+.sortByTeamToggle {
+  margin-left: auto;
+}
+
+.sortByTeamLabel {
+  font-size: large;
 }
 
 .vod {
