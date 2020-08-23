@@ -26,7 +26,7 @@ const matches = Object.entries(
 
       return score;
     },
-    [0, 0]
+    [0, 0] as [number, number]
   );
 
   const result =
@@ -90,8 +90,14 @@ function App() {
           </div>
         </div>
 
-        {matches.map(({ games }) => (
-          <MatchItem games={games} key={games[0].date} />
+        {matches.map(({ games, date, score, result }, idx) => (
+          <MatchItem
+            games={games}
+            date={date}
+            key={idx}
+            score={score}
+            result={result}
+          />
         ))}
       </div>
     </div>
