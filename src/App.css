@@ -1,7 +1,15 @@
-.App {
+.background {
   background-color: #1f2329;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.App {
   min-height: 100vh;
   display: flex;
+  width: min-content;
+  max-width: 90vw;
   flex-direction: column;
   align-items: flex-start;
   font-size: calc(10px + 1.6vmin);
@@ -10,48 +18,38 @@
   color: #fff9e6;
 }
 
-@media (max-width: 1000px) {
-  .App {
-    font-size: calc(10px + 2vmin);
-  }
+.info-header {
+  margin-bottom: 30px;
+  width: calc(44vw);
+  min-width: 750px;
 }
 
-.info-header {
+.info-header-item {
   background-color: #313640;
   display: flex;
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 40px;
+  width: calc(100% - 20px);
+  margin-bottom: 15px;
   margin-top: 0px;
 }
 
-.info-header p {
+.info-header-item p {
   margin: 0;
 }
 
-.info-header b {
+.info-header-item b {
   margin-right: 5px;
 }
 
-.info-header span {
+.info-header-item span {
   margin-right: 20px;
 }
 
 .match-card {
   padding: 0;
-  margin: 0 0 40px 0;
-  min-width: 50vw;
-}
-
-@media (max-width: 1000px) {
-  .match-card {
-    width: 100%;
-  }
-
-  .info-header {
-    flex-direction: column;
-    width: calc(100% - 20px);
-  }
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 .match-card span {
@@ -68,6 +66,7 @@
   margin: 10px 0px 10px 0px;
   border-radius: 10px;
   font-weight: normal;
+  width: calc(100% - 40px);
   background-color: #313640;
 }
 
@@ -76,8 +75,17 @@
   font-size: calc(10px + 1.7vmin);
 }
 
-.game-card span {
+.game-card-map {
   margin-right: 20px;
+  display: inline-block;
+  min-width: 3.2em;
+}
+
+.game-card-info {
+  margin-right: 20px;
+  display: inline-block;
+  text-align: center;
+  min-width: 4em;
 }
 
 .game-header {
@@ -145,6 +153,7 @@
 
 .sbd-head {
   padding: 15px;
+  white-space: nowrap;
   border-width: 2px;
   border-style: none none solid none;
   border-color: #ebdbb2;
@@ -161,4 +170,19 @@
 .vod a {
   color: #fff9e6;
   text-decoration-line: none;
+}
+
+@media (max-width: 1000px) {
+  .App {
+    font-size: calc(10px + 2vmin);
+  }
+
+  .info-header {
+    width: 90vw;
+    min-width: initial;
+  }
+
+  .info-header-item {
+    flex-direction: column;
+  }
 }

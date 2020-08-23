@@ -30,6 +30,8 @@ export default function MatchItem(props: IMatchItemProps) {
       ? COLORS.RED
       : COLORS.YELLOW;
 
+  const b0n = Math.max(score[0], score[1]) * 2 - 1;
+
   const result =
     score[0] > score[1] ? "VICTORY" : score[1] > score[0] ? "DEFEAT" : "DRAW";
 
@@ -42,6 +44,7 @@ export default function MatchItem(props: IMatchItemProps) {
         <span>
           {score[0]} - {score[1]}
         </span>
+        <span>(B0{b0n})</span>
       </h4>
       {props.games.map((game, idx) => {
         return <GameItem {...game} key={idx} />;

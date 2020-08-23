@@ -37,6 +37,10 @@ const matches = Object.entries(
 
 const matchesPlayed = matches.length;
 const matchesWon = matches.filter((match) => match.result === "VICTORY").length;
+
+const gamesPlayed = games.length;
+const gamesWon = games.filter((game) => game.score[0] > game.score[1]).length;
+
 const totalTimeSpent = matches.reduce((a1, c1) => {
   const matchDuration = c1.games.reduce((a2, c2) => {
     a2.add(Number(c2.time.slice(3)), "seconds");
@@ -49,27 +53,47 @@ const totalTimeSpent = matches.reduce((a1, c1) => {
 
 function App() {
   return (
-    <div className="App">
-      <h1>S4S Scrim Logs</h1>
-      <div className="info-header">
-        <span>
-          <b>Matches played:</b> {matchesPlayed}
-        </span>
-        <span>
-          <b>Matches won:</b> {matchesWon}
-        </span>
-        <span>
-          <b>Winrate:</b> {((matchesWon / matchesPlayed) * 100).toFixed(1)}%
-        </span>
-        <span>
-          <b>Time Played:</b> {totalTimeSpent.hours()}:
-          {totalTimeSpent.minutes()}:
-          {`${totalTimeSpent.seconds()}`.padStart(2, "0")}
-        </span>
+    <div className="background">
+      <div className="App">
+        <h1>S4S Scrim Logs</h1>
+        <div className="info-header">
+          <div className="info-header-item">
+            <span>
+              <b>Time Played:</b> {totalTimeSpent.hours()}:
+              {totalTimeSpent.minutes()}:
+              {`${totalTimeSpent.seconds()}`.padStart(2, "0")}
+            </span>
+          </div>
+          <div className="info-header-item">
+            <span>
+              <b>Matches played:</b> {matchesPlayed}
+            </span>
+            <span>
+              <b>Matches won:</b> {matchesWon}
+            </span>
+            <span>
+              <b>Match Winrate:</b>{" "}
+              {((matchesWon / matchesPlayed) * 100).toFixed(1)}%
+            </span>
+          </div>
+          <div className="info-header-item">
+            <span>
+              <b>Games played:</b> {gamesPlayed}
+            </span>
+            <span>
+              <b>Games won:</b> {gamesWon}
+            </span>
+            <span>
+              <b>Game Winrate:</b> {((gamesWon / gamesPlayed) * 100).toFixed(1)}
+              %
+            </span>
+          </div>
+        </div>
+
+        {matches.map(({ games }) => (
+          <MatchItem games={games} key={games[0].date} />
+        ))}
       </div>
-      {matches.map(({ games }) => (
-        <MatchItem games={games} key={games[0].date} />
-      ))}
     </div>
   );
 }

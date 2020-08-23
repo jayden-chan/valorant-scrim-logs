@@ -102,13 +102,15 @@ export default function GameItem(props: IGameItemProps) {
           height="13"
         />
         <h5>
-          <span style={{ color }}>{props.map}</span>
+          <span className="game-card-map" style={{ color }}>
+            {props.map}
+          </span>
           <span>|</span>
-          <span>{props.time}</span>
-          <span>|</span>
-          <span>
+          <span className="game-card-info">
             {props.score[0]} - {props.score[1]}
           </span>
+          <span>|</span>
+          <span className="game-card-info">{props.time}</span>
         </h5>
       </div>
       {isExpanded && (
