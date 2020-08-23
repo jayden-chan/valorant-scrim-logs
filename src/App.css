@@ -160,6 +160,10 @@
   cursor: pointer;
 }
 
+.sbd-head-name {
+  min-width: 9em;
+}
+
 .vod {
   font-size: calc(10px + 1vmin);
   color: #fff9e6;

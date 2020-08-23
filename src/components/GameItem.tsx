@@ -135,7 +135,7 @@ export default function GameItem(props: IGameItemProps) {
                   <th
                     onClick={() => setSortByTeam((prev) => !prev)}
                     key="Player Name"
-                    className="sbd-head"
+                    className="sbd-head sbd-head-name"
                   >
                     {sortByTeam ? "Grouped by Team" : "Individually Sorted"}
                   </th>
