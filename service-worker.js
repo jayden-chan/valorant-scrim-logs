@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/valorant-scrim-logs/precache-manifest.449339924b34c071eae4d84df50ebc1f.js"
+  "/valorant-scrim-logs/precache-manifest.725907a034ee0e978341b5a9061b394a.js"
 );
 
 self.addEventListener('message', (event) => {
