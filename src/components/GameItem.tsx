@@ -40,7 +40,7 @@ export interface IGameItemProps {
   score: [number, number];
   time: string;
   url?: string;
-  scoreboard: string[][];
+  scoreboard: (string | number)[][];
 }
 
 export default function GameItem(props: IGameItemProps) {
@@ -51,19 +51,25 @@ export default function GameItem(props: IGameItemProps) {
 
   const mappedScoreboard = props.scoreboard.map((row) => {
     const ret = [...row];
-    ret.splice(6, 0, (Number(row[3]) / Number(row[4])).toFixed(2));
+    ret.splice(6, 0, ((row[3] as number) / (row[4] as number)).toFixed(2));
     return ret;
   });
 
   let sortedScoreboard = mappedScoreboard.sort((a, b) => {
     const colIdx = COL_HEADERS.indexOf(sortColumn) + 2;
-    const aVal = Number(a[colIdx]);
-    const bVal = Number(b[colIdx]);
+    const aVal = a[colIdx];
+    const bVal = b[colIdx];
     if (sortByTeam) {
-      if (TEAMMATES.includes(a[1]) && !TEAMMATES.includes(b[1])) {
+      if (
+        TEAMMATES.includes(a[1] as string) &&
+        !TEAMMATES.includes(b[1] as string)
+      ) {
         return -1;
       }
-      if (!TEAMMATES.includes(a[1]) && TEAMMATES.includes(b[1])) {
+      if (
+        !TEAMMATES.includes(a[1] as string) &&
+        TEAMMATES.includes(b[1] as string)
+      ) {
         return 1;
       }
     }
@@ -167,7 +173,7 @@ export default function GameItem(props: IGameItemProps) {
                           className={`sbd-cell ${
                             idx2 === 0 ? "sbd-name" : "sbd-num"
                           } ${
-                            TEAMMATES.includes(row[1])
+                            TEAMMATES.includes(row[1] as string)
                               ? "sbd-team"
                               : "sbd-enemy"
                           }`}

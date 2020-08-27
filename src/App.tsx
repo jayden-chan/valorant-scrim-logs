@@ -56,6 +56,14 @@ function App() {
     <div className="background">
       <div className="App">
         <h1>S4S Scrim Logs</h1>
+        {/*
+        <div className="nav-links">
+          <h4>
+            <a href="/players">Player Stats</a>
+          </h4>
+        </div>
+
+          */}
         <div className="info-header">
           <div className="info-header-item">
             <span>

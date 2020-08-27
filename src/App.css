@@ -18,6 +18,22 @@
   color: #fff9e6;
 }
 
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-links h4 {
+  margin: 0 0 1em 0;
+}
+
+.nav-links a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .info-header {
   margin-bottom: 30px;
   width: calc(44vw);
@@ -188,5 +204,10 @@
 
   .info-header-item {
     flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
