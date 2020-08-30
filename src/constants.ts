@@ -13,5 +13,5 @@ export const COL_HEADERS = [
 export const COLORS = {
   RED: "#ff5454",
   GREEN: "#9bff87",
-  YELLOW: "yellow"
-}
+  YELLOW: "yellow",
+};
