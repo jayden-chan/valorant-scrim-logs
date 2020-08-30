@@ -2,14 +2,23 @@
 
 const { readFileSync, writeFileSync } = require("fs");
 
-const input_path = process.argv[2];
-if (!input_path || input_path.length === 0) {
-  console.log("Specify a file");
-  process.exit(1);
-}
+const round = (num, precision) => Number(num.toFixed(precision));
 
-console.log(input_path);
-const games = JSON.parse(readFileSync(input_path, { encoding: "utf-8" })).games;
+const games = JSON.parse(
+  readFileSync("./games.json", { encoding: "utf-8" })
+).games.map((game) => {
+  const mappedScoreboard = game.scoreboard.map((row) => {
+    const ret = [...row];
+    ret.splice(6, 0, round(row[3] / row[4], 2));
+    return ret;
+  });
+  game.scoreboard = mappedScoreboard;
+  return game;
+});
+
+const teammates = JSON.parse(
+  readFileSync("./src/teammates.json", { encoding: "utf-8" })
+);
 
 const matches = Object.values(
   Object.entries(
@@ -41,6 +50,42 @@ const matches = Object.values(
   })
 );
 
+const playerStats = teammates
+  .map((curr) => {
+    const playerGames = games.filter((game) =>
+      game.scoreboard.some((row) => row[1] === curr)
+    );
+
+    const playerMatches = matches.filter((match) =>
+      match.games.some((game) => game.scoreboard.some((row) => row[1] === curr))
+    );
+
+    const totals = playerGames.reduce((totalsAcc, totalsCurr) => {
+      totalsCurr.scoreboard
+        .find((row) => row[1] === curr)
+        .slice(2)
+        .forEach((col, idx) => {
+          totalsAcc[idx] += col;
+        });
+      return totalsAcc;
+    }, Array(9).fill(0));
+
+    return {
+      name: curr,
+      matchesPlayed: playerMatches.length,
+      matchesWon: playerMatches.filter((match) => match.result === "VICTORY")
+        .length,
+      gamesPlayed: playerGames.length,
+      gamesWon: playerGames.filter((game) => game.score[0] > game.score[1])
+        .length,
+      totals,
+      averages: totals.map((val) => val / playerGames.length),
+    };
+  }, {})
+  .sort((a, b) => {
+    return a.averages[0] > b.averages[0] ? -1 : 1;
+  });
+
 const matchesPlayed = matches.length;
 const matchesWon = matches.filter((match) => match.result === "VICTORY").length;
 
@@ -57,3 +102,5 @@ writeFileSync(
     matchesWon,
   })
 );
+
+writeFileSync("./src/player_stats.json", JSON.stringify(playerStats));

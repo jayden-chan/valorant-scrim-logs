@@ -1,14 +1,3 @@
-export const TEAMMATES = [
-  "ATQMIC",
-  "LithiumFrost",
-  "Eung Coconut",
-  "Wild West",
-  "HonestPretzels",
-  "Pax1",
-  "Jakyb",
-  "Mugi",
-];
-
 export const COL_HEADERS = [
   "Avg Combat Score",
   "K",

@@ -17,7 +17,8 @@ import viper from "../images/agents/viper.png";
 import dropdown from "../images/dropdown.png";
 import dropup from "../images/dropup.png";
 
-import { COL_HEADERS, TEAMMATES, COLORS } from "../constants";
+import { COL_HEADERS, COLORS } from "../constants";
+import TEAMMATES from "../teammates.json";
 
 const images = {
   breach,
@@ -49,13 +50,7 @@ export default function GameItem(props: IGameItemProps) {
   const [sortDirection, setSortDirection] = useState(true);
   const [sortByTeam, setSortByTeam] = useState(false);
 
-  const mappedScoreboard = props.scoreboard.map((row) => {
-    const ret = [...row];
-    ret.splice(6, 0, ((row[3] as number) / (row[4] as number)).toFixed(2));
-    return ret;
-  });
-
-  let sortedScoreboard = mappedScoreboard.sort((a, b) => {
+  let sortedScoreboard = props.scoreboard.sort((a, b) => {
     const colIdx = COL_HEADERS.indexOf(sortColumn) + 2;
     const aVal = a[colIdx];
     const bVal = b[colIdx];
