@@ -22,7 +22,7 @@ export default function MatchItem(props: IMatchItemProps) {
 
   return (
     <div className="match-card">
-      <h4>
+      <h3>
         <span>{props.date}</span>
         <span>-</span>
         <span style={{ color }}>{props.result}</span>
@@ -30,7 +30,7 @@ export default function MatchItem(props: IMatchItemProps) {
           {score[0]} - {score[1]}
         </span>
         <span>(B0{b0n})</span>
-      </h4>
+      </h3>
       {props.games.map((game, idx) => {
         return <GameItem {...game} key={idx} />;
       })}
