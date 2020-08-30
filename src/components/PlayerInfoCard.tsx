@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { COLORS, COL_HEADERS } from "../constants";
+import { COL_HEADERS } from "../constants";
 import { capitalize } from "../util";
 
 import dropdown from "../images/dropdown.png";
@@ -29,13 +29,13 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
           width="24"
           height="13"
         />
-        <h2 style={{ color: COLORS.GREEN }}>{props.name}</h2>
+        <h3 className="player-card-title">{props.name}</h3>
       </div>
 
       {isExpanded && (
         <div>
           <span>
-            <h3>Top Agents</h3>
+            <h3 className="player-card-subtitle">Top Agents</h3>
             {Object.entries(props.agents)
               .sort((a, b) => (a[1] > b[1] ? -1 : 1))
               .slice(0, 3)
@@ -44,7 +44,7 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
               ))}
           </span>
 
-          <h3>Matches</h3>
+          <h3 className="player-card-subtitle">Matches</h3>
           <div>
             <span className="player-agg-stat">
               <b>Played: </b>
@@ -56,7 +56,7 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
             </span>
           </div>
 
-          <h3>Games</h3>
+          <h3 className="player-card-subtitle">Games</h3>
           <div>
             <span className="player-agg-stat">
               <b>Played: </b>
@@ -68,7 +68,7 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
             </span>
           </div>
 
-          <h3>Averages</h3>
+          <h3 className="player-card-subtitle">Averages</h3>
           <div className="stat-row">
             {props.averages.map((val, idx) => (
               <div className="stat-item">
@@ -80,7 +80,7 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
             ))}
           </div>
 
-          <h3>Totals</h3>
+          <h3 className="player-card-subtitle">Totals</h3>
           <div className="stat-row">
             {props.totals.map((val, idx) => (
               <div className="stat-item">

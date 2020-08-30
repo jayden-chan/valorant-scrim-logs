@@ -1,5 +1,14 @@
+:root {
+  --color-green: #9bff87;
+  --color-red: #ff5454;
+  --color-yellow: yellow;
+  --color-bg: #1f2329;
+  --color-fg: #313640;
+  --color-text: #fff9e6;
+}
+
 .background {
-  background-color: #1f2329;
+  background-color: var(--color-bg);
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,7 +24,7 @@
   font-size: calc(10px + 1.6vmin);
   padding: 0px 5vw 0px 5vw;
   margin: 0 auto 0 auto;
-  color: #fff9e6;
+  color: var(--color-text);
 }
 
 .nav-links {
@@ -41,7 +50,7 @@
 }
 
 .info-header-item {
-  background-color: #313640;
+  background-color: var(--color-fg);
   display: flex;
   border-radius: 10px;
   padding: 10px;
@@ -83,7 +92,7 @@
   border-radius: 10px;
   font-weight: normal;
   width: calc(100% - 40px);
-  background-color: #313640;
+  background-color: var(--color-vg);
 }
 
 .game-card h5 {
@@ -182,13 +191,13 @@
 
 .vod {
   font-size: calc(10px + 1vmin);
-  color: #fff9e6;
+  color: var(--color-text);
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
 .vod a {
-  color: #fff9e6;
+  color: var(--color-text);
   text-decoration-line: none;
 }
 
@@ -199,7 +208,7 @@
 }
 
 .player-card {
-  background-color: #313640;
+  background-color: var(--color-fg);
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -208,11 +217,12 @@
   margin-top: 0px;
 }
 
-.player-card h2 {
+.player-card-title {
+  color: var(--color-green);
   margin: 0;
 }
 
-.player-card h3 {
+.player-card-subtitle {
   margin: 1em 0 0 0;
 }
 
