@@ -163,23 +163,23 @@ export default function GameItem(props: IGameItemProps) {
               <tbody>
                 {sortedScoreboard.map((row) => {
                   const image = row[0] as keyof typeof images;
+                  const rowColor = TEAMMATES.includes(row[1] as string)
+                    ? "sbd-team"
+                    : "sbd-enemy";
                   return (
                     <tr>
                       <td className="sbd-img">
                         <img src={images[image]} alt={image} />
                       </td>
-                      {row.slice(1).map((val, idx2) => (
+                      <td className={`sbd-cell sbd-name ${rowColor}`}>
+                        <b>{row[1]}</b>
+                      </td>
+                      {row.slice(2).map((val, idx2) => (
                         <td
-                          className={`sbd-cell ${
-                            idx2 === 0 ? "sbd-name" : "sbd-num"
-                          } ${
-                            TEAMMATES.includes(row[1] as string)
-                              ? "sbd-team"
-                              : "sbd-enemy"
-                          }`}
+                          className={`sbd-cell sbd-num ${rowColor}`}
                           key={idx2}
                         >
-                          {idx2 === 0 ? <b>{val}</b> : val}
+                          {val}
                         </td>
                       ))}
                     </tr>
