@@ -1,5 +1,6 @@
 import React from "react";
 import { COL_HEADERS } from "../constants";
+import { capitalize } from "../util";
 
 export interface IPlayerInfoCardProps {
   name: string;
@@ -7,6 +8,7 @@ export interface IPlayerInfoCardProps {
   matchesWon: number;
   gamesPlayed: number;
   gamesWon: number;
+  agents: { [key: string]: number };
   totals: number[];
   averages: number[];
 }
@@ -15,6 +17,16 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
   return (
     <div className="player-card">
       <h2>{props.name}</h2>
+
+      <span>
+        <h3>Top Agents</h3>
+        {Object.entries(props.agents)
+          .sort((a, b) => (a[1] > b[1] ? -1 : 1))
+          .slice(0, 3)
+          .map(([agent]) => (
+            <div>{capitalize(agent)}</div>
+          ))}
+      </span>
 
       <h3>Matches</h3>
       <div>

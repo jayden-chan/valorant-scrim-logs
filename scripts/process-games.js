@@ -56,6 +56,15 @@ const playerStats = teammates
       game.scoreboard.some((row) => row[1] === curr)
     );
 
+    const agents = playerGames.reduce((agentsAcc, agentsCurr) => {
+      const agent = agentsCurr.scoreboard.find((row) => row[1] === curr)[0];
+      if (!agentsAcc[agent]) {
+        agentsAcc[agent] = 1;
+      }
+      agentsAcc[agent] += 1;
+      return agentsAcc;
+    }, {});
+
     const playerMatches = matches.filter((match) =>
       match.games.some((game) => game.scoreboard.some((row) => row[1] === curr))
     );
@@ -72,6 +81,7 @@ const playerStats = teammates
 
     return {
       name: curr,
+      agents,
       matchesPlayed: playerMatches.length,
       matchesWon: playerMatches.filter((match) => match.result === "VICTORY")
         .length,

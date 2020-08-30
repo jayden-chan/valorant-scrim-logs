@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import playerStats from "../../player_stats.json";
-import PlayerInfoCard from "../PlayerInfoCard";
+import PlayerInfoCard, { IPlayerInfoCardProps } from "../PlayerInfoCard";
 
 export default function Players() {
   return (
@@ -15,7 +15,9 @@ export default function Players() {
         </div>
         <div className="player-info">
           {playerStats.map((player) => {
-            return <PlayerInfoCard {...player} />;
+            return (
+              <PlayerInfoCard {...((player as any) as IPlayerInfoCardProps)} />
+            );
           })}
         </div>
       </div>
