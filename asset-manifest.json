@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/valorant-scrim-logs/static/css/main.a0d36fce.chunk.css",
-    "main.js": "/valorant-scrim-logs/static/js/main.8aeb803a.chunk.js",
-    "main.js.map": "/valorant-scrim-logs/static/js/main.8aeb803a.chunk.js.map",
+    "main.css": "/valorant-scrim-logs/static/css/main.39f7a437.chunk.css",
+    "main.js": "/valorant-scrim-logs/static/js/main.dc330120.chunk.js",
+    "main.js.map": "/valorant-scrim-logs/static/js/main.dc330120.chunk.js.map",
     "runtime-main.js": "/valorant-scrim-logs/static/js/runtime-main.f3ede612.js",
     "runtime-main.js.map": "/valorant-scrim-logs/static/js/runtime-main.f3ede612.js.map",
     "static/js/2.addec63e.chunk.js": "/valorant-scrim-logs/static/js/2.addec63e.chunk.js",
     "static/js/2.addec63e.chunk.js.map": "/valorant-scrim-logs/static/js/2.addec63e.chunk.js.map",
     "index.html": "/valorant-scrim-logs/index.html",
-    "precache-manifest.6f6b990436cbfb7ef2a377963d7a8485.js": "/valorant-scrim-logs/precache-manifest.6f6b990436cbfb7ef2a377963d7a8485.js",
+    "precache-manifest.3906ad9dce7bf2dca8194b088e6470a8.js": "/valorant-scrim-logs/precache-manifest.3906ad9dce7bf2dca8194b088e6470a8.js",
     "service-worker.js": "/valorant-scrim-logs/service-worker.js",
-    "static/css/main.a0d36fce.chunk.css.map": "/valorant-scrim-logs/static/css/main.a0d36fce.chunk.css.map",
+    "static/css/main.39f7a437.chunk.css.map": "/valorant-scrim-logs/static/css/main.39f7a437.chunk.css.map",
     "static/js/2.addec63e.chunk.js.LICENSE.txt": "/valorant-scrim-logs/static/js/2.addec63e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f3ede612.js",
     "static/js/2.addec63e.chunk.js",
-    "static/css/main.a0d36fce.chunk.css",
-    "static/js/main.8aeb803a.chunk.js"
+    "static/css/main.39f7a437.chunk.css",
+    "static/js/main.dc330120.chunk.js"
   ]
 }
