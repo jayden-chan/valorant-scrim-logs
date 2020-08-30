@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
 
-import breach from "../agents/breach.png";
-import brimstone from "../agents/brimstone.png";
-import cypher from "../agents/cypher.png";
-import jett from "../agents/jett.png";
-import killjoy from "../agents/killjoy.png";
-import omen from "../agents/omen.png";
-import phoenix from "../agents/phoenix.png";
-import raze from "../agents/raze.png";
-import reyna from "../agents/reyna.png";
-import sage from "../agents/sage.png";
-import sova from "../agents/sova.png";
-import viper from "../agents/viper.png";
+import breach from "../images/agents/breach.png";
+import brimstone from "../images/agents/brimstone.png";
+import cypher from "../images/agents/cypher.png";
+import jett from "../images/agents/jett.png";
+import killjoy from "../images/agents/killjoy.png";
+import omen from "../images/agents/omen.png";
+import phoenix from "../images/agents/phoenix.png";
+import raze from "../images/agents/raze.png";
+import reyna from "../images/agents/reyna.png";
+import sage from "../images/agents/sage.png";
+import sova from "../images/agents/sova.png";
+import viper from "../images/agents/viper.png";
 
 import dropdown from "../images/dropdown.png";
 import dropup from "../images/dropup.png";
