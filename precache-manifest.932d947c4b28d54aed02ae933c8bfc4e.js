@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4c355fd8180b7a84cbcf3068b6e7a535",
+    "revision": "e471aa2a429cbf84c381367d58b2c31c",
     "url": "/valorant-scrim-logs/index.html"
   },
   {
-    "revision": "78bd276f74ccc5a3e5c9",
-    "url": "/valorant-scrim-logs/static/css/main.39f7a437.chunk.css"
+    "revision": "1c88daf96757c52f0142",
+    "url": "/valorant-scrim-logs/static/css/main.5e8125ee.chunk.css"
   },
   {
     "revision": "015f1064495a8696f6b5",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/valorant-scrim-logs/static/js/2.addec63e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "78bd276f74ccc5a3e5c9",
-    "url": "/valorant-scrim-logs/static/js/main.dc330120.chunk.js"
+    "revision": "1c88daf96757c52f0142",
+    "url": "/valorant-scrim-logs/static/js/main.171a51b8.chunk.js"
   },
   {
     "revision": "641f71834d2dae96a379",
