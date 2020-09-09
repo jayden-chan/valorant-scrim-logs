@@ -79,6 +79,8 @@ const playerStats = teammates
       return totalsAcc;
     }, Array(9).fill(0));
 
+    const mappedTotals = totals.map((t, idx) => ({ idx, val: t }));
+
     return {
       name: curr,
       agents,
@@ -88,7 +90,7 @@ const playerStats = teammates
       gamesPlayed: playerGames.length,
       gamesWon: playerGames.filter((game) => game.score[0] > game.score[1])
         .length,
-      totals,
+      totals: [...mappedTotals.slice(1, 4), ...mappedTotals.slice(6)],
       averages: totals.map((val) => val / playerGames.length),
     };
   }, {})

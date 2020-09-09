@@ -12,7 +12,7 @@ export interface IPlayerInfoCardProps {
   gamesPlayed: number;
   gamesWon: number;
   agents: { [key: string]: number };
-  totals: number[];
+  totals: { val: number; idx: number }[];
   averages: number[];
 }
 
@@ -82,7 +82,7 @@ export default function PlayerInfoCard(props: IPlayerInfoCardProps) {
 
           <h3 className="player-card-subtitle">Totals</h3>
           <div className="stat-row">
-            {props.totals.map((val, idx) => (
+            {props.totals.map(({ val, idx }) => (
               <div className="stat-item">
                 <span>
                   <b>{COL_HEADERS[idx]}</b>
