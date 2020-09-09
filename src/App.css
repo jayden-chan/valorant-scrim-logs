@@ -92,7 +92,7 @@
   border-radius: 10px;
   font-weight: normal;
   width: calc(100% - 40px);
-  background-color: var(--color-vg);
+  background-color: var(--color-fg);
 }
 
 .game-card h5 {
